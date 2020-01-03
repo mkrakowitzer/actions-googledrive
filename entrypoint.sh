@@ -8,8 +8,10 @@ cat <<EOF >> $HOME/.skicka.config
         clientid=$GOOGLE_CLIENT_ID
         clientsecret=$GOOGLE_CLIENT_SECRET
 EOF
+chmod 600 $HOME/.skicka.config
 
 echo $SKICKA_TOKENCACHE_JSON > $HOME/.skicka.tokencache.json
+chmod 600 $HOME/.skicka.tokencache.json
 
 skicka -no-browser-auth upload -ignore-times "$UPLOAD_FROM" "$UPLOAD_TO"
 if [ $? -ne 0 ]; then

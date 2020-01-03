@@ -27,15 +27,15 @@ inputs:
 
   google-client-id:
     description: Your Google Drive API client ID
-    required: false
+    required: true
 
   google-client-secret:
     description: Your Google Drive API client secret
-    required: false
+    required: true
 
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://mkrakowitzer/actions-googledrive:latest'
   env:
     SKICKA_TOKENCACHE_JSON: ${{ inputs.skicka-tokencache-json }}
     UPLOAD_FROM: ${{ inputs.upload-from }}
