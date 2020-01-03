@@ -1,0 +1,45 @@
+# action.yml
+name: 'Upload to Google Drive'
+description: 'Upload files to Google Drive'
+
+branding:
+  icon: 'upload-cloud'
+  color: 'gray-dark'
+
+inputs:
+  skicka-tokencache-json:
+    description: 'Content of `~/.skicka.tokencache.json` created by the `skicka` command'
+    required: true
+
+  upload-from:
+    description: 'The path where the files to upload are located'
+    default: './'
+    required: false
+
+  upload-to:
+    description: 'The path where the files to be uploaded is located'
+    required: true
+
+  remove-outdated:
+    description: 'Whether to delete files that do not exist locally'
+    default: 'true'
+    required: false
+
+  google-client-id:
+    description: Your Google Drive API client ID
+    required: false
+
+  google-client-secret:
+    description: Your Google Drive API client secret
+    required: false
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    SKICKA_TOKENCACHE_JSON: ${{ inputs.skicka-tokencache-json }}
+    UPLOAD_FROM: ${{ inputs.upload-from }}
+    UPLOAD_TO: ${{ inputs.upload-to }}
+    REMOVE_OUTDATED: ${{ inputs.remove-outdated }}
+    GOOGLE_CLIENT_ID: ${{ inputs.google-client-id }}
+    GOOGLE_CLIENT_SECRET: ${{ inputs.google-client-secret }}
