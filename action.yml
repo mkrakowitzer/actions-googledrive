@@ -1,5 +1,5 @@
 # action.yml
-name: 'Upload to Google Drive'
+name: 'Upload files to Google Drive'
 description: 'Upload files to Google Drive'
 
 branding:
