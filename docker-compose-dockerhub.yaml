@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   makepdfs:
-    container_name: makepdfs
+    container_name: googledrive
     build:
       context: .
       dockerfile: Dockerfile
